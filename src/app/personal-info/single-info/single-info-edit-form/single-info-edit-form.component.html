@@ -1,0 +1,72 @@
+<div
+  class="single-info-edit-form"
+  [ngClass]="{'single-info-edit-form--hidden': !formIsShown}"
+>
+  <!-- Gray overlay from behind -->
+  <div
+    class="single-info-edit-form__overlay"
+    *ngIf="personalInfo && formIsShown"
+  ></div>
+
+  <div
+    class="single-info-edit-form__form-container"
+    *ngIf="personalInfo && formIsShown"
+  >
+
+    <!-- Close Button -->
+    <div class="single-info-edit-form__close" (click)="close()">
+      <i class="fa fa-times" aria-hidden="true"></i>
+    </div>
+
+    <!--  Type -->
+    <div class="single-info-edit-form__type">
+      {{ personalInfo.Type }}
+    </div>
+
+    <!-- Adult -->
+    <div class="single-info-edit-form__adult">
+      <span class="icon">
+        <img src="../../../../assets/images/adult.png" alt="Adult img">
+      </span>
+      <span class="text">
+        Adult 1
+      </span>
+    </div>
+
+    <!-- Seat -->
+    <div class="single-info-edit-form__seat">
+      <span class="icon">
+        <img src="../../../../assets/images/seat.png" alt="Seat img">
+      </span>
+      <span class="text">
+        Seat {{ personalInfo.Seat }}
+      </span>
+    </div>
+
+    <!-- Name -->
+    <input
+      type="text"
+      placeholder="First Name"
+      [(ngModel)]="personalInfo.Name"
+    >
+
+    <!-- Surname -->
+    <input
+      type="text"
+      placeholder="Last Name"
+      [(ngModel)]="personalInfo.LastName"
+    >
+
+    <!-- ID -->
+    <input
+      type="text"
+      placeholder="ID"
+      [(ngModel)]="personalInfo.ID"
+    >
+
+    <!-- Next Button -->
+    <div class="single-info-edit-form__next-btn" (click)="save()">
+      Next
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div
+  class="personal-info"
+>
+    <!-- Draws cards -->
+    <app-single-info
+      *ngFor="let singlePersonalInfo of personalInfoCollection; let itemIndex = index"
+      [personalInfo]="singlePersonalInfo"
+      [personalInfoIndex]="itemIndex"
+      (saveEmitter)="changeItem($event)"
+    ></app-single-info>
+
+    <!-- Next btn -->
+    <div class="personal-info__next-container" (click)="gotToNextStep()">
+      <img src="../../assets/images/next.png" alt="Next Btn">
+    </div>
+</div>

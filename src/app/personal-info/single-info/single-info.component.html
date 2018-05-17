@@ -1,0 +1,101 @@
+
+<app-single-info-edit-form
+  [personalInfo]="personalInfoFormData"
+  [formIsShown]="editFormIsShown"
+  (closeEmitter)="hideForm()"
+  (saveEmitter)="saveData()"
+>
+</app-single-info-edit-form>
+
+<div class="single-info" *ngIf="personalInfo">
+
+  <!-- Personal info head part -->
+  <div class="single-info__head">
+
+    <!-- Adult -->
+    <div class="single-info__adult">
+      <span class="icon">
+        <img src="../../../assets/images/adult.png" alt="Adult img">
+      </span>
+      <span class="text">
+        Adult 1
+      </span>
+    </div>
+
+    <!-- Seat -->
+    <div class="single-info__seat">
+      <span class="icon">
+        <img src="../../../assets/images/seat.png" alt="Seat img">
+      </span>
+      <span class="text">
+        Seat {{ personalInfo.Seat }}
+      </span>
+    </div>
+
+    <!-- Marker -->
+    <div class="single-info__marker">
+      <span class="icon">
+        <img src="../../../assets/images/marker.png" alt="Marker img">
+      </span>
+      <span class="text">
+        {{ personalInfo.Type }}
+      </span>
+    </div>
+
+  </div>
+
+  <!-- Line between head and body part -->
+  <div class="single-info__underlay"></div>
+
+  <div class="single-info__body">
+
+    <!-- Message is shown if Personal info is empty -->
+    <span
+      *ngIf="personalInfoIsEmpty()"
+      class="single-info__add-personal-message"
+    >
+      Add Personal info
+    </span>
+
+    <!-- Personal info -->
+    <span
+      *ngIf="! personalInfoIsEmpty()"
+      class="single-info__personal-info"
+    >
+      <div class="single-info__full-name">
+        {{ personalInfo.Name }} {{ personalInfo.LastName }}
+      </div>
+      <div class="single-info__ID">
+        {{ personalInfo.ID }}
+      </div>
+    </span>
+
+    <span class="single-info__add-personal-icon" (click)="showForm()">
+
+      <!-- If adding personal info (+) icon is shown -->
+      <img
+        *ngIf="personalInfoIsEmpty()"
+        src="../../../assets/images/plus.png"
+        alt="Add img"
+      >
+
+      <!-- If editing personal info pencil icon is shown -->
+      <img
+        *ngIf="! personalInfoIsEmpty()"
+        src="../../../assets/images/edit.png"
+        alt="Edit img"
+      >
+
+    </span>
+  </div>
+
+  <!-- Hidden div which clears floats. -->
+  <div class="clearfix"></div>
+
+</div>
+
+
+
+
+
+

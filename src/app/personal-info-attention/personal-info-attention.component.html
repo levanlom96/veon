@@ -1,0 +1,45 @@
+<div class="personal-info-attention">
+
+  <div class="personal-info-attention__attention-message">
+    <span class="highlighted">Attention!</span>
+
+    Passengers with invalid passport
+    data are not allowed on the train
+
+    <span class="personal-info-attention__attention-message with-margin">
+      Enter Your mobile and email to receive tickets
+    </span>
+
+  </div>
+
+  <div class="personal-info-attention__form-container">
+
+    <!-- Mobile Prefix -->
+    <input
+      class="prefix"
+      type="text"
+      placeholder="Prefix"
+      [(ngModel)]="attention.MobilePrefix"
+    >
+
+    <!-- Mobile Number  -->
+    <input
+      class="number"
+      type="text"
+      placeholder="Mobile number"
+      [(ngModel)]="attention.MobileNumber"
+    >
+
+    <!-- Email  -->
+    <input
+      type="text"
+      placeholder="Email"
+      [(ngModel)]="attention.Email"
+    >
+  </div>
+
+  <!-- Next btn -->
+  <div class="personal-info-attention__next-container" (click)="showInConsoleSentData()">
+    <img src="../../assets/images/next.png" alt="Next Btn">
+  </div>
+</div>
